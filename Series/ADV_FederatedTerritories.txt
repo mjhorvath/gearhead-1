@@ -625,6 +625,8 @@ Scene 1 5
 		XPos 23
 		YPos 23
 		Scale 5
+		sdl_sprite <meta_terrain.png>
+		frame 19
 
 		Village
 		name <Kist Village>
@@ -669,6 +671,8 @@ Scene 1 5
 		scale 5
 		stat 5 -1
 		update <ifG G1004 0 SetStat 5 0>
+		sdl_sprite <meta_terrain.png>
+		frame 17
 
 		Village
 		name <Nara Ruins>
@@ -683,6 +687,8 @@ Scene 1 5
 		Scale 5
 		XPos 6
 		YPos 3
+		sdl_sprite <meta_terrain.png>
+		frame 18
 
 		Town
 		name <Markheim Fortress>
