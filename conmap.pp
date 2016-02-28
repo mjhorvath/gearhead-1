@@ -31,26 +31,20 @@ const
 	SHOT_Parry = 2;
 
 	TerrGfx: Array [1..NumTerr] of Char = (
-		'.', '=', '#', '=', '%',
-		'.', '.', '^', '^', '^',
-		'.', '#', '#', '.', '#',
-		'.', '.', '#', '+', '.',
-		'=', '-', '#', '#', '.',
-		'_', '#', '.', '#', '.',
-		'#', '$', '#', '#', '#',
-		'$', '$', '$', '.', '=',
-		'-', '#'
+		'.', '=', '#', '=', '%',	'.', '.', '^', '^', '^',
+		'.', '#', '#', '.', '#',	'.', '.', '#', '+', '.',
+		'=', '-', '#', '#', '.',	'_', '#', '.', '#', '.',
+		'#', '$', '#', '#', '#',	'$', '$', '$', '.', '=',
+		'-', '#', '#', '.', '=',	'#', '#', '#', 'o', 'x',
+		'o', 'x', '='
 	);
 	TerrColor: Array [1..NumTerr] of Byte = (
-		Green, LightGreen, LightGreen, LightBlue, DarkGray,
-		LightGray, Cyan, DarkGray, LightGray, White,
-		DarkGray, LightGray, LightGray, DarkGray, DarkGray,
-		LightGray, Brown, Red, Cyan, LightBlue,
-		Blue, Blue, White, Yellow, Red,
-		Brown, Brown, Blue, Cyan, LightGray,
-		Brown,LightGreen,Magenta,LightCyan,Blue,
-		LightMagenta,Brown,Cyan,Yellow,Brown,
-		Magenta,LightMagenta
+		Green, LightGreen, LightGreen, LightBlue, DarkGray,		LightGray, Cyan, DarkGray, LightGray, White,
+		DarkGray, LightGray, LightGray, DarkGray, DarkGray,		LightGray, Brown, Red, Cyan, LightBlue,
+		Blue, Blue, White, Yellow, Red,					Brown, Brown, Blue, Cyan, LightGray,
+		Brown, LightGreen, Magenta, LightCyan, Blue,			LightMagenta, Brown, Cyan, Yellow, Brown,
+		Magenta, LightMagenta, LightGray, LightGray, LightGreen,	LightGreen, White, LightGreen, LightGray, Red,
+		LightGray, Red, LightGreen
 	);
 
 

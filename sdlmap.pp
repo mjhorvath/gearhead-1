@@ -107,22 +107,37 @@ const
 		0, 0, 0, 0, 0,  0, 0, 0, 4, 0,
 		3, 3, 0, 0, 0,  0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0,  0, 0, 0, 0, 5,
-		0, 0
+		0, 0, 0, 0, 6,  7, 0, 0, 0, 0,
+		0, 0, 0
 	);
 
-	NumThinWalls = 5;
+	NumThinWalls = 18;
 	ThinWall_Earth = 1;
 	ThinWall_RustySteel = 2;
 	ThinWall_Stone = 3;
 	ThinWall_Industrial = 4;
 	ThinWall_Residential = 5;
+	ThinWall_Fortress = 6;
+	ThinWall_Road = 7;
+	ThinWall_Hospital = 8;
+	ThinWall_Wooden = 9;
+	ThinWall_Plain = 10;
+	ThinWall_Commercial = 11;
+	ThinWall_Arena = 12;
+	ThinWall_Neon = 13;
+	ThinWall_Garage = 14;
+	ThinWall_Restaurant = 15;
+	ThinWall_Stainless = 16;
+	ThinWall_Ziggurat = 17;
+	ThinWall_Gold = 18;
 
 	Terrain_Image: Array [1..NumTerr] of SmallInt = (
-		 1, 2, 3, 4, 5,  6, 7, 8, 9,10,
-		11,12,-5,14,-3, 16,17,18,19,20,
-		21,22,23,24,25, 26,27,28,-ThinWall_RustySteel,30,
-		-1,32,33,34,-4, 36,37,38,39,40,
-		41,42
+		 1,  2,  3,  4,  5,    6,  7,  8,  9, 10,
+		11, 12, -5, 14, -3,   16, 17, -8, 19, 20,
+		21, 22,-10,-18, 25,   26, -9, 28, -2, 30,
+		-1,-11,-17,-16, -4,  -13,-15,-14, 39, 40,
+		41, 42, -6, -7, 45,   46,-12, 48, 49, 50,
+		51, 52, 53
 	);
 
 	HalfTileWidth = 32;
@@ -580,7 +595,9 @@ procedure NFDisplayMap( gb: GameBoardPtr );
 			EffectiveWall := True;
 		end else if GB^.Map[ X , Y ].terr = Terrain_Threshold then begin
 			EffectiveWall := True;
-		end else if TerrMan[ GB^.Map[ X , Y ].terr ].Pass < -99 then begin
+		end else if TerrMan[ GB^.Map[ X , Y ].terr ].Pass <= -100 then begin
+			EffectiveWall := True;
+		end else if Terrain_Image[ GB^.Map[ X , Y ].terr ] < 0 then begin
 			EffectiveWall := True;
 		end else begin
 			EffectiveWall := False;
@@ -615,16 +632,17 @@ procedure NFDisplayMap( gb: GameBoardPtr );
 	Function EffectiveFloor( X , Y: Integer ): Boolean;
 		{ Return TRUE if the listed tile is on the map and a non-threshold floor. }
 	begin
-		EffectiveFloor := OnTheMap( X , Y ) and ( GB^.Map[ X , Y ].terr <> terrain_threshold ) and ( TerrMan[ GB^.Map[ X , Y ].terr ].Obscurement = 0 );
+		EffectiveFloor := OnTheMap( X , Y ) and ( GB^.Map[ X , Y ].terr <> terrain_threshold ) and ( TerrMan[ GB^.Map[ X , Y ].terr ].Obscurement = 0 ) and ( TerrMan[ GB^.Map[ X , Y ].terr ].Altitude = 0 ) and ( Terrain_Image[ GB^.Map[ X , Y ].terr ] > 0 );
 	end;
 	Function WallFloorFrame( X , Y: Integer ): Integer;
 		{ The thin walls don't come with their own floors. So, we'll pick a floor style }
 		{ from the surrounding terrain. }
 	begin
+		// Should maybe search in the other five directions as well as these three.
 		if EffectiveFloor( X + 1 , Y + 1 ) then WallFloorFrame := GB^.Map[ X + 1 , Y + 1 ].terr - 1
 		else if EffectiveFloor( X , Y + 1 ) then WallFloorFrame := GB^.Map[ X , Y + 1 ].terr - 1
 		else if EffectiveFloor( X + 1 , Y ) then WallFloorFrame := GB^.Map[ X + 1 , Y ].terr - 1
-		else WallFloorFrame := 5;
+		else WallFloorFrame := 0;	// was 5
 	end;
 	Function EffectiveHill( X , Y , MinZ : Integer ): Boolean;
 		{ Return TRUE if X,Y is a hill, or not on the map. }
@@ -673,9 +691,14 @@ begin
 				end else if Terrain_Image[ GB^.Map[ X , Y ].terr ] < 0 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , WallFloorFrame( X , Y ) , Terrain_Sprite );
 					AddInstantOverlay( X , Y , 0 , OVERLAY_ThinWall , WallFrame( X , Y ) , Thin_Wall_Sprites[ -Terrain_Image[ GB^.Map[ X , Y ].terr ] ] );
-					AddInstantOverlay( X , Y , 0 , OVERLAY_Toupee , WallCapFrame( X , Y ) , Thin_Wall_Cap );
-					Overlay_Map[ X , Y , 0 , OVERLAY_ThinWall ].UseAlpha := True;
-					Overlay_Map[ X , Y , 0 , OVERLAY_Toupee ].UseAlpha := True;
+					{ Arena wall is a special case. }
+					if GB^.Map[ X , Y ].terr <> 47 then begin
+						AddInstantOverlay( X , Y , 0 , OVERLAY_Toupee , WallCapFrame( X , Y ) , Thin_Wall_Cap );
+						if TerrMan[ GB^.Map[ X , Y ].terr ].Altitude > 0 then begin
+							Overlay_Map[ X , Y , 0 , OVERLAY_ThinWall ].UseAlpha := True;
+							Overlay_Map[ X , Y , 0 , OVERLAY_Toupee ].UseAlpha := True;
+						end;
+					end;
 				end else begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , GB^.Map[ X , Y ].terr - 1 , Terrain_Sprite );
 					if Terrain_Toupee[ GB^.Map[ X , Y ].terr ] <> 0 then AddInstantOverlay( X , Y , 0 , OVERLAY_Toupee , Terrain_Toupee[ GB^.Map[ X , Y ].terr ] - 1 , Terrain_Toupee_Sprite );
@@ -1563,7 +1586,20 @@ initialization
 	Thin_Wall_Sprites[ ThinWall_RustySteel ] := ConfirmSprite( 'wall_rustysteel.png' , '' , 64 , 96 );
 	Thin_Wall_Sprites[ ThinWall_Stone ] := ConfirmSprite( 'wall_stone.png' , '' , 64 , 96 );
 	Thin_Wall_Sprites[ ThinWall_Industrial ] := ConfirmSprite( 'wall_industrial.png' , '' , 64 , 96 );
-	Thin_Wall_Sprites[ ThinWall_Residential ] := ConfirmSprite( 'wall_extra_b.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Residential ] := ConfirmSprite( 'wall_residential.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Fortress ] := ConfirmSprite( 'wall_fortress.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Road ] := ConfirmSprite( 'wall_road.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Hospital ] := ConfirmSprite( 'wall_hospital.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Wooden ] := ConfirmSprite( 'wall_wooden.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Plain ] := ConfirmSprite( 'wall_plain.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Commercial ] := ConfirmSprite( 'wall_commercial.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Arena ] := ConfirmSprite( 'wall_arena.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Neon ] := ConfirmSprite( 'wall_neon.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Garage ] := ConfirmSprite( 'wall_garage.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Restaurant ] := ConfirmSprite( 'wall_restaurant.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Stainless ] := ConfirmSprite( 'wall_stainless.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Ziggurat ] := ConfirmSprite( 'wall_ziggurat.png' , '' , 64 , 96 );
+	Thin_Wall_Sprites[ ThinWall_Gold ] := ConfirmSprite( 'wall_gold.png' , '' , 64 , 96 );
 {	Thin_Wall_Sprites[ ThinWall_Default ] := ConfirmSprite( 'wall_extra_a.png' , '' , 64 , 96 );}
 
 	Thin_wall_Cap := ConfirmSprite( 'wall_cap.png' , '' , 64 , 96 );

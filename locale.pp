@@ -125,7 +125,8 @@ Const
 
 	DefaultScale = 2; {The default map scale. 2 = Mecha Scale}
 
-	NumTerr = 42;
+	{	MMPass: ( WALK,	ROLL,	SKIM,	FLY );	}
+	NumTerr = 53;
 	TerrMan: Array [1..NumTerr] of TerrDesc = (
 	(	name: 'Open Ground';
 		Pass: 0;
@@ -134,14 +135,14 @@ Const
 		Altitude: 0;
 		DMG: 20; Destroyed: 11;
 		Flammable: True;		),
-	(	name: 'Light Forest';
+	(	name: 'Light Forest SF2';
 		Pass: 50;
 		MMPass: ( True , False , True , True );
 		Obscurement: 2;
 		Altitude: 0;
 		DMG: 5; Destroyed: 11;
 		Flammable: True;		),
-	(	name: 'Heavy Forest';
+	(	name: 'Heavy Forest SF2';
 		Pass: 100;
 		MMPass: ( True , False , True , True );
 		Obscurement: 3;
@@ -208,28 +209,28 @@ Const
 		Altitude: 0;
 		DMG: 19; Destroyed: 5;
 		Flammable: False;		),
-	(	name: 'Low Wall';
+	(	name: 'Low Wall SF2';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 1;
 		DMG: 18; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Residential Wall';
+	(	name: 'Residential Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 26; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Stone Floor';
+	(	name: 'Stone Floor SF0';
 		Pass: 0;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 20; Destroyed: 11;
 		Flammable: False;		),
-	(	name: 'Stone Wall';
+	(	name: 'Stone Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
@@ -252,7 +253,7 @@ Const
 		Altitude: 0;
 		DMG: 20; Destroyed: 11;
 		Flammable: False;		),
-	(	name: 'Hospital Wall';
+	(	name: 'Hospital Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
@@ -266,7 +267,7 @@ Const
 		Altitude: 0;
 		DMG: 15; Destroyed: 5;
 		Flammable: True;		),
-	(	name: 'Blue Carpet';
+	(	name: 'Blue Carpet SF0';
 		Pass: -3;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -289,21 +290,21 @@ Const
 		Altitude: -3;
 		DMG: 0; Destroyed: 0;
 		Flammable: False;		),
-	(	name: 'Wall';
+	(	name: 'Plain Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 30; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Gold Wall';
+	(	name: 'Gold Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 24; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Red Carpet';
+	(	name: 'Red Carpet SF0';
 		Pass: -3;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -312,35 +313,35 @@ Const
 		Flammable: True;		),
 
 	{ 26 - 30 }
-	(	name: 'Wooden Floor';
+	(	name: 'Wooden Floor SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 7; Destroyed: 11;
 		Flammable: True;		),
-	(	name: 'Wooden Wall';
+	(	name: 'Wooden Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 20; Destroyed: 11;
 		Flammable: True;		),
-	(	name: 'Tile Floor';
+	(	name: 'Tile Floor SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 9; Destroyed: 11;
 		Flammable: False;		),
-	(	name: 'Steel Wall';
+	(	name: 'Steel Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 50; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Marble Floor';
+	(	name: 'Marble Floor SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -349,35 +350,35 @@ Const
 		Flammable: False;		),
 
 	{ 31 - 35 }
-	(	name: 'Earth Wall';
+	(	name: 'Earth Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 20; Destroyed: 17;
 		Flammable: False;		),
-	(	name: 'Commercial Wall';
+	(	name: 'Commercial Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 20; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Fortress Wall';
+	(	name: 'Ziggurat Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 42; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Stainless Steel Wall';
+	(	name: 'Stainless Steel Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 50; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Industrial Wall';
+	(	name: 'Industrial Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
@@ -386,21 +387,21 @@ Const
 		Flammable: False;		),
 
 	{ 36 - 40 }
-	(	name: 'Neon Wall';
+	(	name: 'Neon Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 20; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Restaurant Wall';
+	(	name: 'Restaurant Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 20; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Garage Wall';
+	(	name: 'Garage Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
@@ -423,22 +424,103 @@ Const
 		Flammable: True;		),
 
 	{ 41 - 45 }
-	(	name: 'Organic Floor';
+	(	name: 'Organic Floor SF0';
 		Pass: 0;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 0; Destroyed: 0;
 		Flammable: False;		),
-	(	name: 'Organic Wall';
+	(	name: 'Organic Wall SF0';
 		Pass: -100;
 		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 6;
 		DMG: 30; Destroyed: 41;
-		Flammable: False;		)
+		Flammable: False;		),
+	// should be the same as low wall
+	(	name: 'Fortress Wall SF2';
+		Pass: -100;
+		MMPass: ( True , True , True , True );
+		Obscurement: 1;
+		Altitude: 1;
+		DMG: 18; Destroyed: 40;
+		Flammable: True;		),
+	// should be the same as pavement
+	(	name: 'Skinny Road SF3';
+		Pass: -5;
+		MMPass: ( True , True , True , True );
+		Obscurement: 0;
+		Altitude: 0;
+		DMG: 30; Destroyed: 41;
+		Flammable: False;		),
+	(	name: 'Light Weeds SF0';
+		Pass: 50;
+		MMPass: ( True , False , True , True );
+		Obscurement: 2;
+		Altitude: 0;
+		DMG: 5; Destroyed: 11;
+		Flammable: True;		),
 
+	{ 46 - 50 }
+	(	name: 'Heavy Weeds SF0';
+		Pass: 100;
+		MMPass: ( True , False , True , True );
+		Obscurement: 3;
+		Altitude: 0;
+		DMG: 10; Destroyed: 2;
+		Flammable: True;		),
+	(	name: 'Arena Wall SF2';
+		Pass: -100;
+		MMPass: ( True , True , True , True );
+		Obscurement: 1;
+		Altitude: 1;
+		DMG: 18; Destroyed: 40;
+		Flammable: False;		),
+	(	name: 'Pine Tree SF0';
+		Pass: -100;
+		MMPass: ( True , True , True , True );
+		Obscurement: 3;
+		Altitude: 6;
+		DMG: 18; Destroyed: 40;
+		Flammable: True;		),
+	(	name: 'Boulder SF0';
+		Pass: -100;
+		MMPass: ( False , False , True , True );
+		Obscurement: 1;
+		Altitude: 1;
+		DMG: 18; Destroyed: 40;
+		Flammable: False;		),
+	(	name: 'Czech Hedgehog SF0';
+		Pass: -100;
+		MMPass: ( False , False , True , True );
+		Obscurement: 0;
+		Altitude: 1;
+		DMG: 18; Destroyed: 40;
+		Flammable: False;		),
 
+	{ 51 - 55 }
+	(	name: 'Boulders SF2';
+		Pass: 50;
+		MMPass: ( False , False , True , True );
+		Obscurement: 0;
+		Altitude: 0;
+		DMG: 18; Destroyed: 40;
+		Flammable: False;		),
+	(	name: 'Czech Hedgehogs SF2';
+		Pass: 50;
+		MMPass: ( False , False , True , True );
+		Obscurement: 0;
+		Altitude: 0;
+		DMG: 18; Destroyed: 40;
+		Flammable: False;		),
+	(	name: 'Weeds SF2';
+		Pass: 50;
+		MMPass: ( True , False , True , True );
+		Obscurement: 1;
+		Altitude: 0;
+		DMG: 5; Destroyed: 11;
+		Flammable: True;		)
 	);
 
 
@@ -2049,7 +2131,7 @@ begin
 	end else begin
 		{ If the terrain isn't an obstacle, but is two elevations }
 		{ too tall, then it counts as an obstacle. }
-		it := TerrMan[ Terrain ].Altitude > ( MekALt + 1 );
+		it := TerrMan[ Terrain ].Altitude >= ( MekALt + 2 );
 	end;
 
 	{ Check the movement mode of the mek, to make sure that the }
