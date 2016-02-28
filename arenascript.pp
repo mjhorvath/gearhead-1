@@ -37,9 +37,9 @@ unit arenascript;
 interface
 
 {$IFDEF SDLMODE}
-uses gears,locale,sdlmenus,sdl;
+uses gears,locale,sysutils,sdlmenus,sdl;
 {$ELSE}
-uses gears,locale,conmenus;
+uses gears,locale,sysutils,conmenus;
 {$ENDIF}
 
 const
@@ -781,11 +781,12 @@ begin
 		SV := ( VCode + 1 ) * 5;
 
 	end else if ( SMsg = 'MAPTILE' ) then begin
-		{ Return how many faction XP points needed for next level. }
+		{ Return the terrain type for random encounters. }
 		VCode := ScriptValue( Event , GB , Scene );
 		VC2 := ScriptValue( Event , GB , Scene );
 		if ( GB <> Nil ) and OnTheMap( VCode , VC2 ) then begin
 			SV := GB^.Map[ VCode , VC2 ].terr;
+			if Debug_On then dialogmsg( 'MAPTILE: ' + IntToStr(SV) );
 		end else begin
 			SV := 0;
 		end;

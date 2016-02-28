@@ -69,6 +69,45 @@ uses gearutil,ghprop,rpgdice,texutil,context;
 var
 	Standard_Param_List: SAttPtr;
 
+Function GetStyleParam( MF: GearPtr; Code: String ) : String;
+var
+	Style,Scale: Integer;
+	G: GearPtr;
+begin
+	GetStyleParam := '';
+	Style := 0;
+	Scale := 0;
+
+	G := MF;
+	while (G <> Nil) and (G^.G <> GG_Scene) do G := G^.Parent;
+	if (G <> Nil) then Scale := G^.V;  
+
+	if MF <> Nil then begin
+		GetStyleParam := SAttValue(MF^.SA, Code);
+		if MF^.G = GG_Scene then 
+			Style := MF^.Stat[ STAT_MapGenerator ]
+		else if MF^.G = GG_MapFeature then 
+			Style := MF^.S;
+	end;
+
+	if GetStyleParam = '' then
+		GetStyleParam := SAttValue(Standard_Param_List,
+					Code
+				      + BStr(Style)
+				      + '_'
+				      + BStr(Scale));
+
+	if GetStyleParam = '' then
+		GetStyleParam := SAttValue(Standard_Param_List,
+					Code
+				      + BStr(Style));
+
+	if GetStyleParam = '' then
+		GetStyleParam := SAttValue(Standard_Param_List,
+					Code
+				      + 'DEFAULT');
+end;
+
 Function IsLegalTerrain( T: Integer ): Boolean;
 	{ Return TRUE if T is a legal terrain type, or FALSE otherwise. }
 begin
@@ -1316,7 +1355,7 @@ begin
 	end;
 end;
 
-Function TheRenderer( GB: GameBoardPtr; MF: GearPtr; X , Y , W , H , Style: Integer ): SAttPtr;
+Function TheRenderer( GB: GameBoardPtr; MF: GearPtr; X , Y , W , H : Integer) : SAttPtr;
 	{ Do some damage to the game board in the shape of this feature. }
 	{ This function returns the STYLE of the part; }
 	{ it describes what kind of feature we should be drawing. }
@@ -1325,10 +1364,7 @@ var
 	Cells: SAttPtr;
 begin
 	{ Determine the command string to use for this feature. }
-	Command_String := '';
-	if MF <> Nil then Command_String := SAttValue( MF^.SA , 'PARAM' );
-	if Command_String = '' then Command_String := SAttValue( Standard_Param_List , 'PARAM' + BStr( Style ) );
-	if Command_String = '' then Command_String := SAttValue( Standard_Param_List , 'PARAMDEFAULT' );
+	Command_String := GetStyleParam(MF, 'PARAM');
 
 	Cells := Nil;
 
@@ -1444,7 +1480,7 @@ begin
 					end;
 
 					{ Render it on the map. }
-					TheRenderer( GB , NewMF , P.X , P.Y , W , H , Style );
+					TheRenderer( GB , NewMF , P.X , P.Y , W , H );
 				end;
 			end; { for t = 1 to 100 }
 		end;
@@ -1464,45 +1500,34 @@ var
 	Cells: SAttPtr;
 	SubFeature: GearPtr;
 	Placement_String,Gapfill_String: String;
-	X,Y,W,H,Style,Select_Check,Select_Terrain: Integer;
+	X,Y,W,H,Select_Check,Select_Terrain: Integer;
 begin
 	{ Initialize miscellaneous values. }
 	Cells := Nil;
-	if MF = Nil then begin
-		{ This will be a basic-form scene. }
-		Style := 0;
-		X := 1;
-		Y := 1;
-		W := XMax;
-		H := YMax;
-	end else if MF^.G = GG_Scene then begin
-		Style := MF^.Stat[ STAT_MapGenerator ];
-		X := 1;
-		Y := 1;
-		W := XMax;
-		H := YMax;
-	end else if MF^.G = GG_MapFeature then begin
-		Style := MF^.S;
+
+	if (MF <> Nil) and (MF^.G = GG_MapFeature) then begin
 		X := MF^.Stat[ STAT_XPos ];
 		Y := MF^.Stat[ STAT_YPos ];
 		W := MF^.Stat[ STAT_MFWidth ];
 		H := MF^.Stat[ STAT_MFHeight ];
+	end else begin
+		X := 1;
+		Y := 1;
+		W := XMax;
+		H := YMax;
 	end;
 
 	{ Do the drawing. }
-	Cells := TheRenderer( GB , MF , X , Y , W , H , Style );
+	Cells := TheRenderer( GB , MF , X , Y , W , H );
 
 	{ Now that we know the style, determine the SELECTOR parameters. }
-	Placement_String := '';
-	if MF <> Nil then Placement_String := SAttValue( MF^.SA , 'SELECTOR' );
-	if Placement_String = '' then Placement_String := SAttValue( Standard_Param_List , 'SELECTOR' + BStr( Style ) );
+	Select_Terrain := 0;
+	Placement_String := GetStyleParam(MF, 'SELECTOR');
 	Select_Check := ExtractValue( Placement_String );
 	if Select_Check <> 0 then Select_Terrain := DecideTerrainType( MF , Placement_String , ExtractValue( Placement_String ) );
 
 	{ Also the GapFill parameters. }
-	GapFill_String := '';
-	if MF <> Nil then GapFill_String := SAttValue( MF^.SA , 'GAPFILL' );
-	if GapFill_String = '' then GapFill_String := SAttValue( Standard_Param_List , 'GAPFILL' + BStr( Style ) );
+	GapFill_String := GetStyleParam(MF, 'GAPFILL');
 
 	{ Loop through MF's subcoms here. }
 	if MF <> Nil then begin
