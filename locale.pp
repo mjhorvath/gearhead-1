@@ -502,21 +502,21 @@ Const
 	{ 51 - 55 }
 	(	name: 'Boulders SF2';
 		Pass: 50;
-		MMPass: ( False , False , True , True );
+		MMPass: ( True , False , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 18; Destroyed: 40;
 		Flammable: False;		),
 	(	name: 'Czech Hedgehogs SF2';
 		Pass: 50;
-		MMPass: ( False , False , True , True );
+		MMPass: ( True , False , True , True );
 		Obscurement: 0;
 		Altitude: 0;
 		DMG: 18; Destroyed: 40;
 		Flammable: False;		),
 	(	name: 'Weeds SF2';
 		Pass: 50;
-		MMPass: ( True , False , True , True );
+		MMPass: ( True , True , True , True );
 		Obscurement: 1;
 		Altitude: 0;
 		DMG: 5; Destroyed: 11;

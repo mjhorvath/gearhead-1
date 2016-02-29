@@ -65,7 +65,7 @@ const
 	 -1,-1,-1,-1, 2,  2,-1, 2,-1, 2,
 	 -1,-1,-1,-1,-1, -1,-1,-1, 2, 4,
 	  2,-1,-1, 2, 3,  4,-1,-1,-1,-1,
-	  3,-1,	3	),
+	  3, 3, 3	),
 	( 2, 3, 4, 5, 2,  2, 3, 3, 4, 5,  { MECHA WALK }
 	  3,-1,-1, 2,-1,  2, 2,-1, 2, 2,
 	  5, 5,-1,-1, 2,  2,-1, 2,-1, 2,
@@ -199,7 +199,7 @@ Procedure HotMapFloodFill( GB: GameBoardPtr; N,MM: Integer );
 var
 	X,Y: Integer;
 	Flag: Boolean;
-	DV,DH,DD,DP: Integer;	{ Distance Vertical, Horizontal, and Diagnol. }
+	DV,DH,DD,DP: Integer;	{ Distance Vertical, Horizontal, and Diagonal. }
 begin
 	flag := True;
 	while flag do begin

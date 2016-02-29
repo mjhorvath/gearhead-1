@@ -17,10 +17,10 @@ Name8 <Light Hills>
 Param8 <Fill 1 0>
 GapFill8 <-4 -5 -4 -5 -5 -5>
 Name7 <Swamp>
-Param7_2 <Fill 1 7 53>
-GapFill7_2 <-4 -4 -9 -9 -9 -13 -17>
-Param7_0 <Fill 1 7 45 46>
-GapFill7_0 <-4 -4 -9 -9 -9 -13 -17>
+Param7_2 <Fill 1 7 53 Scatter 53 7 2 4>
+GapFill7_2 <-4 -4 -9 -9 -9 -13>
+Param7_0 <Fill 1 45 46 Scatter 45 46 4>
+GapFill7_0 <-4 -4 -9 -9 -9 -13>
 Name3 <Deep Forest>
 Param3_2 <Fill 2 1>
 Param3_0 <Fill 45 1>
@@ -73,8 +73,7 @@ PARAM-15 <Fill 1 0 DWall 47>
 GAPFILL-15 <-4 -5 -5>
 Name-16 <BigBox>
 PARAM-16 <Fill 16 0 Wall 23>
-NAME-17 <Swamp>
-PARAM-17 <Scatter 7 2 4>
+% -17 is missing %
 NAME-18 <Fortress>
 PARAM-18 <Fill 14 0 DWall 43>
 Name-19 <Dirt>
