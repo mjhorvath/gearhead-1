@@ -1,6 +1,7 @@
 % RANDOM MAPS STANDARD PARAMETER FILE % See randmaps.pp for details
 % There needs to be a Name44 entry here as well. This is for the new road tiles. Otherwise you get a plain combat map with no terrain features on it.
 % Preferably generate a map similar to the one in SCENE_ProtectConvoy.txt.
+% Number of parameters: Fill = 2; Scatter = 3; Wall, DWall and OWall = 1; Carve = 3; Lattice = 2; Ellipse = 3; Mitose = 2; MonkeyHouse = 2;
 Name39 <Desert>
 Param39 <Fill 39 0>
 GapFill39 <-19 -5 -13 -5>
@@ -17,13 +18,13 @@ Name8 <Light Hills>
 Param8 <Fill 1 0>
 GapFill8 <-4 -5 -4 -5 -5 -5>
 Name7 <Swamp>
-Param7_2 <Fill 1 7 53 Scatter 53 7 2 4>
+Param7_2 <Fill 1 53 Scatter 7 2 4>
 GapFill7_2 <-4 -4 -9 -9 -9 -13>
-Param7_0 <Fill 1 45 46 Scatter 45 46 4>
+Param7_0 <Fill 1 45 Scatter 45 46 4>
 GapFill7_0 <-4 -4 -9 -9 -9 -13>
 Name3 <Deep Forest>
-Param3_2 <Fill 2 1>
-Param3_0 <Fill 45 1>
+Param3_2 <Fill 2 1 Scatter 3 51 53>
+Param3_0 <Fill 48 1 Scatter 45 46 49>
 GapFill3 <-4 -4 -4 -5 -13>
 Name2 <Forest>
 Param2_2 <Fill 1 2>
@@ -41,8 +42,8 @@ SELECTOR-2 <1 5 14>
 Name-3 <Rectangle>
 PARAM-3 <Fill 1 0>
 Name-4 <Forest>
-PARAM-4_2 <Scatter 2 3 51 53 0>
-PARAM-4_0 <Scatter 48 45 49 46 0>
+PARAM-4_2 <Scatter 2 3 51>
+PARAM-4_0 <Scatter 48 45 49>
 Name-5 <Hills>
 PARAM-5 <Scatter 8 9 10>
 Name-6 <City>
@@ -51,7 +52,7 @@ SELECTOR-6 <-1 8 6>
 GAPFILL-6 <-1 -1 -7>
 %GAPFILL-6 <-1 -1 -7 -8 -8 -8>
 Name-7 <Parking Lot>
-PARAM-7 <Fill 6 0 Wall 1 Scatter 50 45>
+PARAM-7 <Fill 6 0 Wall 1 Scatter 50 45 48>
 Name-8 <House>
 PARAM-8 <Fill 20 0 DWall 13>
 Name-9 <Lake>
