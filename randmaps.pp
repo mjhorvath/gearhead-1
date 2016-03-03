@@ -373,6 +373,7 @@ var
 begin
 	if DoorPrototype <> Nil then begin
 		NewDoor := CloneGear( DoorPrototype );
+		{ Using NewDoor^.V here may be a hack with unintended consequences! }
 	end else begin
 		NewDoor := NewGear( Nil );
 		NewDoor^.G := GG_MetaTerrain;
@@ -380,6 +381,8 @@ begin
 		NewDoor^.V := 5;
 		InitGear( NewDoor );
 	end;
+
+	NewDoor^.stat[ 2 ] := LocalWall;
 
 	SetNAtt( NewDoor^.NA , NAG_Location , NAS_X , X );
 	SetNAtt( NewDoor^.NA , NAG_Location , NAS_Y , Y );

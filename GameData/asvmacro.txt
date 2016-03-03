@@ -64,6 +64,7 @@ STAT_Pass <3>
 STAT_Lock <6>
 STAT_MetaVisibility <5>
 STAT_MapGenerator <1>
+STAT_WallTerr <2>
 NAG_ParaLocation <-6>
 NAG_Location <-1>
 NAG_ScriptVar <0>
