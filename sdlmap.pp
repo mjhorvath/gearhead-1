@@ -679,15 +679,19 @@ begin
 		for Y := 1 to YMax do begin
 			if GB^.Map[ X , Y ].Visible then begin
 				Mini_Map[ X , Y ] := GB^.Map[ X , Y ].terr + 9;
+				{ Hill 1. }
 				if GB^.Map[ X , Y ].terr = 8 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , HillFrame( X , Y ) , Hill_1 );
 					Overlay_Map[ X , Y , 0 , OVERLAY_Terrain ].UseAlpha := True;
+				{ Hill 2. }
 				end else if GB^.Map[ X , Y ].terr = 9 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , HillFrame( X , Y ) , Hill_2 );
 					Overlay_Map[ X , Y , 0 , OVERLAY_Terrain ].UseAlpha := True;
+				{ Hill 3. }
 				end else if GB^.Map[ X , Y ].terr = 10 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , HillFrame( X , Y ) , Hill_3 );
 					Overlay_Map[ X , Y , 0 , OVERLAY_Terrain ].UseAlpha := True;
+				{ 16-frame sprites including thin walls. }
 				end else if Terrain_Image[ GB^.Map[ X , Y ].terr ] < 0 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , WallFloorFrame( X , Y ) , Terrain_Sprite );
 					AddInstantOverlay( X , Y , 0 , OVERLAY_ThinWall , WallFrame( X , Y ) , Thin_Wall_Sprites[ -Terrain_Image[ GB^.Map[ X , Y ].terr ] ] );
@@ -741,29 +745,38 @@ begin
 			end;
 		end else begin
 			if OnTheMap( X , Y ) and GB^.Map[X,Y].Visible then begin
+				{ Dead mecha. }
 				if ( M^.G = GG_Mecha ) or ( M^.G = GG_Prop ) then begin
 					AddInstantOverlay( X , Y , Z , OVERLAY_Item , Default_Wreckage , Items_Sprite );
+				{ Dead creatures. }
 				end else if M^.G = GG_Character then begin
 					AddInstantOverlay( X , Y , Z , OVERLAY_Item , Default_Dead_Thing , Items_Sprite );
+				{ Metaterrain. }
 				end else if M^.G = GG_MetaTerrain then begin
-					if NotDestroyed( M ) and MekVisible( GB , M ) then 
+					if NotDestroyed( M ) and MekVisible( GB , M ) then begin
+						{ Clouds. }
 						if M^.S = GS_MetaCloud then begin
 							for t := Z to HiAlt do begin
 								AddOverlayIfClear( X , Y , T , OVERLAY_Metaterrain , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) , Meta_Terrain_Sprite );
 							end;
+						{ Fire. }
 						end else if ( M^.S = GS_MetaFire ) and ( Z < 1 ) then begin
 							for t := Z to 1 do begin
 								AddInstantOverlay( X , Y , T , OVERLAY_Metaterrain , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) , Meta_Terrain_Sprite );
 							end;
-                        end else if ( M^.S = GS_MetaDoor ) then begin
-                            { New for 2016- thin doors to go with the thin walls. Yay! }
-                            t := 0;
-                            if EffectiveWall( X + 1, Y ) then t := t + 1;
-                            if M^.stat[ STAT_Pass ] = 0 then t := t + 2;
+						{ Doors. }
+						end else if ( M^.S = GS_MetaDoor ) then begin
+							{ New for 2016- thin doors to go with the thin walls. Yay! }
+							t := 0;
+							if EffectiveWall( X + 1, Y ) then t := t + 1;
+							if M^.stat[ STAT_Pass ] = 0 then t := t + 2;
 							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , t , Door_Sprite );
+							if M^.stat[ STAT_Pass ] = 0 then AddInstantOverlay( X , Y , Z , OVERLAY_Toupee , t + 2 , Door_Sprite );
+						{ Other metaterrain. }
 						end else begin
 							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) , Meta_Terrain_Sprite );
 						end;
+					end;
 				end else begin
 					AddOverlay( X , Y , Z , OVERLAY_Item , GearSpriteName( GB , M ) , '' , '' , 64 , 64 , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) );
 				end;
@@ -1608,7 +1621,7 @@ initialization
 	Hill_3 := ConfirmSprite( 'hill_3.png' , '' , 64 , 96 );
 	Off_Map_Model_Sprite := ConfirmSprite( 'off_map.png' , '' , 16 , 16 );
 
-    Door_Sprite := ConfirmSprite( 'terrain_door.png', '', 64, 64 );
+	Door_Sprite := ConfirmSprite( 'terrain_door.png', '', 64, 96 );
 
 	Mini_Map_Sprite := ConfirmSprite( 'minimap.png' , '' , 3 , 3 );
 	if Use_Alpha_Blending then SDL_SetAlpha( Mini_Map_Sprite^.Img , SDL_SRCAlpha , Alpha_Level );
