@@ -143,7 +143,7 @@ const
 	NumDoors = 1;
 	Door_SuperModern = 1;
 
-	Terrain_Doors: Array [1..NumTerr] of SmallInt = (
+	Terrain_Door: Array [1..NumTerr] of SmallInt = (
 		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
 		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
 		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
@@ -783,8 +783,8 @@ begin
 							t := 0;
 							if EffectiveWall( X + 1, Y ) then t := t + 1;
 							if M^.stat[ STAT_Pass ] = 0 then t := t + 2;
-							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , t , Door_Sprites[ Terrain_Doors[ GB^.Map[ X , Y ].terr ] ] );
-							if M^.stat[ STAT_Pass ] = 0 then AddInstantOverlay( X , Y , Z , OVERLAY_Toupee , t + 2 , Door_Sprites[ Terrain_Doors[ GB^.Map[ X , Y ].terr ] ] );
+							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , t , Door_Sprites[ Terrain_Door[ GB^.Map[ X , Y ].terr ] ] );
+							if M^.stat[ STAT_Pass ] = 0 then AddInstantOverlay( X , Y , Z , OVERLAY_Toupee , t + 2 , Door_Sprites[ Terrain_Door[ GB^.Map[ X , Y ].terr ] ] );
 						{ Other metaterrain. }
 						end else begin
 							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) , Meta_Terrain_Sprite );
