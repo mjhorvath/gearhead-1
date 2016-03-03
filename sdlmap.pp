@@ -1448,6 +1448,7 @@ begin
 	{ Start with a random forest map. }
 	Scene := NewGear( Nil );
 	Scene^.G := GG_Scene;
+	Scene^.V := 2;
 	Scene^.Stat[ 1 ] := 1;
 	GB := RandomMap( Scene );
 
