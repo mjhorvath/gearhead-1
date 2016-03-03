@@ -140,6 +140,18 @@ const
 		51, 52, 53
 	);
 
+	NumDoors = 1;
+	Door_SuperModern = 1;
+
+	Terrain_Doors: Array [1..NumTerr] of SmallInt = (
+		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
+		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
+		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
+		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
+		 1,  1,  1,  1,  1,    1,  1,  1,  1,  1,
+		 1,  1,  1
+	);
+
 	HalfTileWidth = 32;
 	HalfTileHeight = 16;
 
@@ -214,8 +226,8 @@ var
 	hill_1,hill_2,hill_3: SensibleSpritePtr;
 	Off_Map_Model_Sprite: SensibleSpritePtr;
 	Mini_Map_Sprite: SensibleSpritePtr;
-    Door_Sprite: SensibleSpritePtr;
 
+	Door_Sprites: Array [1..NumDoors] of SensibleSpritePtr;
 	Thin_Wall_Sprites: Array [1..NumThinWalls] of SensibleSpritePtr;
 
 	Opening_Last_Anim_Phase: Uint32;
@@ -744,7 +756,7 @@ begin
 				AddInstantOverlay( X , Y , TerrMan[ GB^.Map[ X , Y ].terr ].altitude , OVERLAY_Shadow , Default_Shadow , Items_Sprite );
 			end;
 		end else begin
-			if OnTheMap( X , Y ) and GB^.Map[X,Y].Visible then begin
+			if OnTheMap( X , Y ) and GB^.Map[ X , Y ].Visible then begin
 				{ Dead mecha. }
 				if ( M^.G = GG_Mecha ) or ( M^.G = GG_Prop ) then begin
 					AddInstantOverlay( X , Y , Z , OVERLAY_Item , Default_Wreckage , Items_Sprite );
@@ -767,11 +779,12 @@ begin
 						{ Doors. }
 						end else if ( M^.S = GS_MetaDoor ) then begin
 							{ New for 2016- thin doors to go with the thin walls. Yay! }
+
 							t := 0;
 							if EffectiveWall( X + 1, Y ) then t := t + 1;
 							if M^.stat[ STAT_Pass ] = 0 then t := t + 2;
-							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , t , Door_Sprite );
-							if M^.stat[ STAT_Pass ] = 0 then AddInstantOverlay( X , Y , Z , OVERLAY_Toupee , t + 2 , Door_Sprite );
+							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , t , Door_Sprites[ Terrain_Doors[ GB^.Map[ X , Y ].terr ] ] );
+							if M^.stat[ STAT_Pass ] = 0 then AddInstantOverlay( X , Y , Z , OVERLAY_Toupee , t + 2 , Door_Sprites[ Terrain_Doors[ GB^.Map[ X , Y ].terr ] ] );
 						{ Other metaterrain. }
 						end else begin
 							AddInstantOverlay( X , Y , Z , OVERLAY_Metaterrain , NAttValue( M^.NA , NAG_Display , NAS_PrimaryFrame ) , Meta_Terrain_Sprite );
@@ -1621,7 +1634,7 @@ initialization
 	Hill_3 := ConfirmSprite( 'hill_3.png' , '' , 64 , 96 );
 	Off_Map_Model_Sprite := ConfirmSprite( 'off_map.png' , '' , 16 , 16 );
 
-	Door_Sprite := ConfirmSprite( 'terrain_door.png', '', 64, 96 );
+	Door_Sprites[ Door_SuperModern ] := ConfirmSprite( 'terrain_door.png', '', 64, 96 );
 
 	Mini_Map_Sprite := ConfirmSprite( 'minimap.png' , '' , 3 , 3 );
 	if Use_Alpha_Blending then SDL_SetAlpha( Mini_Map_Sprite^.Img , SDL_SRCAlpha , Alpha_Level );
