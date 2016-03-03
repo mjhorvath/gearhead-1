@@ -176,7 +176,7 @@ const
 	GH_REPEAT_DELAY = 200;
 	GH_REPEAT_INTERVAL = 50;
 
-    {Color set constants.}
+	{Color set constants.}
 	CS_Clothing = 1;
 	CS_Skin = 2;
 	CS_Hair = 3;
@@ -184,7 +184,7 @@ const
 	CS_SecondaryMecha = 5;
 	CS_Detailing = 6;
 
-
+//	Temp_Format: SDL_PixelFormat = ;
 
 var
 	Game_Screen, Actual_Screen: PSDL_Surface;
@@ -473,11 +473,12 @@ begin
 		it^.Img := IMG_Load( fname );
 
 		if it^.Img <> Nil then begin
-			{ Set transparency color. }
-			SDL_SetColorKey( it^.Img , SDL_SRCCOLORKEY or SDL_RLEACCEL , SDL_MapRGB( it^.Img^.Format , 0 , 0, 255 ) );
 
 			{ If a color swap has been specified, handle that here. }
 			if Color <> '' then begin
+				{ Set transparency color. }
+				SDL_SetColorKey( it^.Img , SDL_SRCCOLORKEY or SDL_RLEACCEL , SDL_MapRGB( it^.Img^.Format , 0 , 0, 255 ) );
+
 				GenerateColor( Color , RSwap );
 				GenerateColor( Color , YSwap );
 				GenerateColor( Color , GSwap );
@@ -490,13 +491,16 @@ begin
 					it^.img := tmp;
 				end;
 
+				tmp := SDL_ConvertSurface( it^.Img , Game_Screen^.Format , SDL_SRCCOLORKEY );
+				SDL_FreeSurface( it^.Img );
+				it^.Img := TMP;
 			end;
 
 			{ Convert to the screen mode. }
 			{ This will make blitting far quicker. }
-			tmp := SDL_ConvertSurface( it^.Img , Game_Screen^.Format , SDL_SRCCOLORKEY );
-			SDL_FreeSurface( it^.Img );
-			it^.Img := TMP;
+//			tmp := SDL_ConvertSurface( it^.Img , Game_Screen^.Format , SDL_SRCCOLORKEY );
+//			SDL_FreeSurface( it^.Img );
+//			it^.Img := TMP;
 
 		end;
 
