@@ -1,0 +1,129 @@
+Free Pascal Compiler version 3.0.0 [2015/11/16] for i386
+Copyright (c) 1993-2015 by Florian Klaempfl and others
+Target OS: Win32 for i386
+Compiling gharena.pas
+Compiling gears.pp
+Compiling texutil.pp
+gears.pp(1212,2) Note: Local variable "S" not used
+Compiling sdlgfx.pp
+Compiling ui4gh.pp
+Compiling ability.pp
+Compiling ghsensor.pp
+Compiling damage.pp
+Compiling gearutil.pp
+Compiling ghchars.pp
+Compiling ghcpit.pp
+ghcpit.pp(54,2) Note: Local variable "Master" not used
+ghcpit.pp(54,9) Note: Local variable "S" not used
+ghcpit.pp(54,11) Note: Local variable "S2" not used
+Compiling ghguard.pp
+Compiling ghmecha.pp
+Compiling ghmodule.pp
+Compiling ghholder.pp
+Compiling ghmovers.pp
+Compiling ghprop.pp
+Compiling ghsupport.pp
+Compiling ghswag.pp
+Compiling ghweapon.pp
+Compiling movement.pp
+movement.pp(530,8) Note: Local variable "SF" not used
+Compiling rpgdice.pp
+ability.pp(838,2) Note: Local variable "it" not used
+sdlgfx.pp(41,47) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(42,47) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(43,44) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(44,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(46,48) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(47,48) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(48,48) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(49,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(50,51) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(51,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(52,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(53,48) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(54,50) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(55,48) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(56,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(57,50) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(58,50) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(59,51) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(60,49) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(61,51) Warning: Some fields coming after "b" were not initialized
+sdlgfx.pp(650,2) Note: Local variable "m2" not used
+Compiling arenahq.pp
+Compiling arenaplay.pp
+Compiling locale.pp
+locale.pp(2317,2) Note: Local variable "Terrain" not used
+locale.pp(2317,19) Note: Local variable "MM" not used
+locale.pp(2318,2) Note: Local variable "MTerr" not used
+Compiling aibrain.pp
+Compiling action.pp
+Compiling interact.pp
+Compiling arenacfe.pp
+Compiling effects.pp
+Compiling ghparser.pp
+Compiling skilluse.pp
+effects.pp(2314,8) Note: Local variable "N" not used
+effects.pp(2314,12) Note: Local variable "AtOp2" not used
+effects.pp(2316,2) Note: Local variable "SRS" not used
+Compiling sdlinfo.pp
+Compiling sdlmap.pp
+Compiling randmaps.pp
+Compiling menugear.pp
+Compiling sdlmenus.pp
+sdlmap.pp(1068,2) Note: Local variable "pmsg" not used
+sdlmap.pp(1069,2) Note: Local variable "MyImage" not used
+sdlmap.pp(1083,2) Note: Local variable "SL" not used
+sdlmap.pp(1084,2) Note: Local variable "pmsg" not used
+sdlmap.pp(1085,2) Note: Local variable "MyImage" not used
+sdlmap.pp(1305,2) Note: Local variable "SL" not used
+sdlmap.pp(1521,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1521,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1522,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1522,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1523,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1523,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1524,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1524,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1525,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1525,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1526,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1526,26) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1597,2) Note: Local variable "A" not used
+sdlmap.pp(238,2) Note: Local variable "Opening_X" not used
+sdlmap.pp(238,12) Note: Local variable "Opening_Y" not used
+sdlinfo.pp(52,51) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(53,47) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(54,49) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(55,48) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(56,52) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(57,47) Warning: Some fields coming after "b" were not initialized
+sdlinfo.pp(299,11) Note: Local variable "Armor" not used
+sdlinfo.pp(299,17) Note: Local variable "Structure" not used
+sdlinfo.pp(270,2) Note: Local variable "MM" not used
+sdlinfo.pp(270,5) Note: Local variable "A" not used
+sdlinfo.pp(270,7) Note: Local variable "B" not used
+sdlinfo.pp(780,2) Note: Local variable "msg" not used
+sdlinfo.pp(780,6) Note: Local variable "job" not used
+sdlinfo.pp(861,6) Note: Local variable "job" not used
+aibrain.pp(656,2) Note: Local variable "BestWeight" is assigned but never used
+aibrain.pp(1891,2) Note: Local variable "it" not used
+Compiling arenascript.pp
+Compiling grabgear.pp
+Compiling playwright.pp
+Compiling services.pp
+Compiling backpack.pp
+Compiling colormenu.pp
+backpack.pp(119,5) Note: Local variable "mysprite" not used
+Compiling wmonster.pp
+arenascript.pp(2342,2) Note: Local variable "Scene" not used
+Compiling pcaction.pp
+Compiling gflooker.pp
+gflooker.pp(311,2) Note: Local variable "P" is assigned but never used
+gflooker.pp(62,2) Warning: Variable "LOOKER_Desc" read but nowhere assigned
+Compiling randchar.pp
+Compiling navigate.pp
+Linking gharena.exe
+47752 lines compiled, 1.5 sec, 499392 bytes code, 102212 bytes data
+39 warning(s) issued
+35 note(s) issued

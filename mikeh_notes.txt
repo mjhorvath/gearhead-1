@@ -1,0 +1,52 @@
++ means I have completed the task
+- means I have not completed the task
+~ means there are issues remaining
+? dunno, I forgot
+
+********************************************************************************
+
++ ziggurat worldmap sprite
++ generator battlemap sprite
++ fortress worldmap sprite
+  + there are several types of fortresses - need to decide which ones should use this sprite and which should not
+  ~ IronWind fortress? markheim fortress? Enemy Fortress?
++ fortress thin wall sprite
+  + use for base/generator attack missions
+  + use for Typhon map
++ arena thin wall sprite
+  ~ my blue bubble walls can only be turned to face the center of the arena by exploiting the fact that they are at the exact edges of the map and then tweaking the sprites
++ separate cave and wildlife reserve worldmap sprites
++ separate tree and tall grass sprites
++ complete all thin wall sprites
+  ~ I did all except the low wall sprite which is maybe no longer used
++ directional road tiles
++ replace bus stop sign with 3D model
+? separate projectile and explosion sprites
+  ~ can't remember what I meant when I wrote this
+? fix dimensions of interface sprites
+  ~ can't remember what I meant when I wrote this
+? enlarge new explosion sprites
+  ~ can't remember what I meant when I wrote this
+? fix no damage sprite
+  ~ can't remember what I meant when I wrote this
++ add support for 32-bit graphics for terrain, walls, etc., but not mecha or monsters since that messes up the palette-based color swapping
+  ~ weapon and projectile effects still need to be updated
++ multiple door sprites (one for each cardinal direction, maybe one for each wall type)
++ new terrain including hedgehogs, big trees, boulders
+- four doors for every building is excessive IMO - need to reduce those down to one unless there are multiple rooms
+- randomly select from 8 slightly different grass/desert/wastes/swamp tiles without regard for direction
+- should restaraunts/hospitals/shops always use the same wall type? I have noticed discrepencies in the game where the building and wall types don't match up
+  - need to identify the guardians using stars on the sides of buildings
+- minimum building width (in tiles) is too small on random maps - some buildings are only 1x1 square in size on the inside
+  ~ maybe force the width and height to powers of two?
+- map editor needs to explicitely say what's under the cursor since the ASCII characters look too much the same
+  ~ will probably need Joseph's help to do this
+- what scale is Scene 46 'Garu Fight'?
+- wall sprites should have additional frames containing additional decorations (windows, cracks, store signs, etc.)
+- having more multi-room buildings would be nice, one-room buildings are kind of boring
+- would be good if the game could tell you the type of tile you're standing on and its properties
+- now that there are thin walls, I can sneak in some non-interactive, purely cosmetic decorations in the now freed-up space
+  ~ not likely to get around to doing this
+- walls should have a definite inside and outside, with different cosmetic appearances
+  ~ not likely to get around to doing this
+- it might be nice to have half-high objects to hide behind, i.e. so you can crouch behind them and shoot but not get hit

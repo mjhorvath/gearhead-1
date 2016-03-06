@@ -1,3 +1,7 @@
+This is a fork of GearHead RPG by Joseph Hewitt. This fork has had its graphics 
+modified so that they use 32-bit graphics with an alpha channel, causing the 
+graphics to appear crisper and smoother.
+
 **************************
 ***  GEARHEAD  README  ***
 **************************

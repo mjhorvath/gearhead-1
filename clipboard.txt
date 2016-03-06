@@ -1,0 +1,19 @@
+git push origin master
+TheRenderer in randmaps.pp
+
+sdlmap.pp line 764 MetaTerrain
+sdlmap.pp line 1412 PrepOpening
+sdlmap.pp line 242 AddInstantOverlay
+randmaps.pp line 72 GetStyleParam
+sdlgfx.pp line 450 AddSprite
+
+
+it^.Img := IMG_Load( fname );
+
+
+	SensibleSprite = Record
+		Name,Color: String;
+		W,H: Integer;	{ Width and Height of each cell. }
+		Img: PSDL_Surface;
+		Next: SensibleSpritePtr;
+	end;
