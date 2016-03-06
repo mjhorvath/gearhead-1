@@ -50,3 +50,5 @@
 - walls should have a definite inside and outside, with different cosmetic appearances
   ~ not likely to get around to doing this
 - it might be nice to have half-high objects to hide behind, i.e. so you can crouch behind them and shoot but not get hit
+- change cursor to something else when hovering over an enemy
+- change cursor to something else when hovering over an interactive object
