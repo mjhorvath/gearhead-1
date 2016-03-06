@@ -223,7 +223,7 @@ Const
 		Altitude: 6;
 		DMG: 26; Destroyed: 40;
 		Flammable: True;		),
-	(	name: 'Stone Floor SF0';
+	(	name: 'Black Carpet SF0';
 		Pass: 0;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -267,7 +267,7 @@ Const
 		Altitude: 0;
 		DMG: 15; Destroyed: 5;
 		Flammable: True;		),
-	(	name: 'Blue Carpet SF0';
+	(	name: 'Gray Tile SF0';
 		Pass: -3;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -304,7 +304,7 @@ Const
 		Altitude: 6;
 		DMG: 24; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Red Carpet SF0';
+	(	name: 'Hardwood SF0';
 		Pass: -3;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -313,7 +313,7 @@ Const
 		Flammable: True;		),
 
 	{ 26 - 30 }
-	(	name: 'Wooden Floor SF0';
+	(	name: 'Beige Carpet SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -327,7 +327,7 @@ Const
 		Altitude: 6;
 		DMG: 20; Destroyed: 11;
 		Flammable: True;		),
-	(	name: 'Tile Floor SF0';
+	(	name: 'Blue Tile SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
@@ -341,7 +341,7 @@ Const
 		Altitude: 6;
 		DMG: 50; Destroyed: 40;
 		Flammable: False;		),
-	(	name: 'Marble Floor SF0';
+	(	name: 'White Tile SF0';
 		Pass: -5;
 		MMPass: ( True , True , True , True );
 		Obscurement: 0;
