@@ -33,12 +33,13 @@
   ~ weapon and projectile effects still need to be updated
 + multiple door sprites (one for each cardinal direction, maybe one for each wall type)
 + new terrain including hedgehogs, big trees, boulders
-- four doors for every building is excessive IMO - need to reduce those down to one unless there are multiple rooms
++ four doors for every building is excessive IMO - need to reduce those down to one unless there are multiple rooms
+  ~ Doors don't necessarily face the street any more.
++ minimum building width (in tiles) is too small on random maps - some buildings are only 1x1 square in size on the inside
+  ~ Raising the minimum value to something higher than 4 causes weird results, such as buildings merging into one another, or touching the map edges.
 - randomly select from 8 slightly different grass/desert/wastes/swamp tiles without regard for direction
 - should restaraunts/hospitals/shops always use the same wall type? I have noticed discrepencies in the game where the building and wall types don't match up
   - need to identify the guardians using stars on the sides of buildings
-- minimum building width (in tiles) is too small on random maps - some buildings are only 1x1 square in size on the inside
-  ~ maybe force the width and height to powers of two?
 - map editor needs to explicitely say what's under the cursor since the ASCII characters look too much the same
   ~ will probably need Joseph's help to do this
 - what scale is Scene 46 'Garu Fight'?
@@ -50,5 +51,5 @@
 - walls should have a definite inside and outside, with different cosmetic appearances
   ~ not likely to get around to doing this
 - it might be nice to have half-high objects to hide behind, i.e. so you can crouch behind them and shoot but not get hit
-- change cursor to something else when hovering over an enemy
-- change cursor to something else when hovering over an interactive object
+- change cursor to a red target when hovering over an enemy
+- change cursor to a hand when hovering over an interactive object
