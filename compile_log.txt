@@ -124,6 +124,6 @@ gflooker.pp(62,2) Warning: Variable "LOOKER_Desc" read but nowhere assigned
 Compiling randchar.pp
 Compiling navigate.pp
 Linking gharena.exe
-47752 lines compiled, 1.5 sec, 499392 bytes code, 102212 bytes data
+47763 lines compiled, 1.4 sec, 499520 bytes code, 102244 bytes data
 39 warning(s) issued
 35 note(s) issued

@@ -38,7 +38,7 @@ unit RandMaps;
 
 interface
 
-uses gears,locale;
+uses gears,locale,math;
 
 const
 	MG_Normal = 0;
@@ -362,7 +362,7 @@ Procedure AddDoor( GB: GameBoardPtr; MF,DoorPrototype: GearPtr; X,Y: Integer );
 		while D <= 8 do begin
 			T := GB^.Map[ X + AngDir[ D , 1 ] , Y + AngDir[ D , 2 ] ].terr;
 			D := D + 2;
-			if TerrMan[ T ].Pass < -99 then D := 10;
+			if TerrMan[ T ].Pass <= -100 then D := 10;
 		end;
 		LocalWall := T;
 	end;
@@ -498,7 +498,7 @@ Procedure ProcessWall( GB: GameBoardPtr; MF: GearPtr; var Cmd: String; X0,Y0,W,H
 	{ appropriate. }
 var
 	DX,DY: Integer;	{ Door Position }
-	Terrain,X,Y: Integer;
+	Terrain,X,Y,PickWall: Integer;
 	Procedure DrawWallNow;
 	begin
 		if OnTheMap( X , Y ) then begin
@@ -518,11 +518,19 @@ var
 		end;
 	end;
 begin
+	{ Set this value too high, and you will get funny results. Buildings will intersect with each other or the map edges. }
+	W := max(4, W);
+	H := max(4, H);
+
 	{ Decide on what terrain to use for the walls. }
 	Terrain := DecideTerrainType( MF , Cmd ,  STAT_MFBorder );
 
+	{ Randomly pick one of the building's four walls to be a wall with a door. }
+	PickWall := Random( 4 );
+
 	{ Top wall. }
-	DX := Random( W - 2 ) + X0 + 1;
+	if PickWall = 0 then DX := Random( W - 2 ) + X0 + 1
+	else DX := -1;
 	Y := Y0;
 	DY := Y0;
 	for X := X0 to ( X0 + W - 1 ) do begin
@@ -530,7 +538,8 @@ begin
 	end;
 
 	{ Bottom wall. }
-	DX := Random( W - 2 ) + X0 + 1;
+	if PickWall = 1 then DX := Random( W - 2 ) + X0 + 1
+	else DX := -1;
 	Y := Y0 + H - 1;
 	DY := Y;
 	for X := X0 to ( X0 + W - 1 ) do begin
@@ -538,7 +547,8 @@ begin
 	end;
 
 	{ Right wall. }
-	DY := Random( H - 2 ) + Y0 + 1;
+	if PickWall = 2 then DY := Random( H - 2 ) + Y0 + 1
+	else DY := -1;
 	X := X0 + W - 1;
 	DX := X;
 	for Y := Y0 to ( Y0 + H - 1 ) do begin
@@ -546,7 +556,8 @@ begin
 	end;
 
 	{ Left wall. }
-	DY := Random( H - 2 ) + Y0 + 1;
+	if PickWall = 3 then DY := Random( H - 2 ) + Y0 + 1
+	else DY := -1;
 	X := X0;
 	DX := X;
 	for Y := Y0 to ( Y0 + H - 1 ) do begin
