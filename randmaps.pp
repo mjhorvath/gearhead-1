@@ -518,10 +518,6 @@ var
 		end;
 	end;
 begin
-	{ Set this value too high, and you will get funny results. Buildings will intersect with each other or the map edges. }
-	W := max(4, W);
-	H := max(4, H);
-
 	{ Decide on what terrain to use for the walls. }
 	Terrain := DecideTerrainType( MF , Cmd ,  STAT_MFBorder );
 
@@ -1469,8 +1465,8 @@ begin
 			{ Try to place an item on the map 100 times. }
 			for t := 1 to 15000 do begin
 				{ Choose a random width, height, and placement point in container. }
-				W := Random( 15 ) + 3;
-				H := Random( 15 ) + 3;
+				W := Random( 13 ) + 5;
+				H := Random( 13 ) + 5;
 				Style := GFStyle[ Random( N ) ];
 				P := RandomPointWithinBounds( Container , W , H );
 
