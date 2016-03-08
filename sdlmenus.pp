@@ -388,7 +388,7 @@ begin
 			NextColor := @RPM^.itemcolor;
 
 		Item_PText := QuickPCopy( a^.msg );
-		Item_Image := TTF_RenderText_Solid( game_font , Item_PText , NextColor^ );
+		Item_Image := TTF_RenderText_Blended( game_font , Item_PText , NextColor^ );
 		Dispose( Item_PText );
 		SDL_BlitSurface( Item_Image , Nil , Game_Screen , @MyDest );
 		SDL_FreeSurface( Item_Image );

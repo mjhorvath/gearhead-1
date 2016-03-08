@@ -129,7 +129,7 @@ var
 	PLine: PChar;
 begin
 	pline := QuickPCopy( msg );
-	MyImage := TTF_RenderText_Solid( Game_Font , pline , C );
+	MyImage := TTF_RenderText_Blended( Game_Font , pline , C );
 	Dispose( pline );
 
 	if MyImage <> Nil then CDest.X := CZone.X + ( ( CZone.W - MyImage^.W ) div 2 );
@@ -147,7 +147,7 @@ var
 	PLine: PChar;
 begin
 	pline := QuickPCopy( msg );
-	MyImage := TTF_RenderText_Solid( Info_Font , pline , C );
+	MyImage := TTF_RenderText_Blended( Info_Font , pline , C );
 	Dispose( pline );
 
 	CDest.X := CZone.X + ( ( CZone.W - MyImage^.W ) div 2 );
@@ -166,7 +166,7 @@ var
 	PLine: PChar;
 begin
 	pline := QuickPCopy( msg );
-	MyImage := TTF_RenderText_Solid( Info_Font , pline , C );
+	MyImage := TTF_RenderText_Blended( Info_Font , pline , C );
 	Dispose( pline );
 
 	CDest.X := CZone.X;
@@ -184,7 +184,7 @@ var
 	PLine: PChar;
 begin
 	pline := QuickPCopy( msg );
-	MyImage := TTF_RenderText_Solid( Info_Font , pline , C );
+	MyImage := TTF_RenderText_Blended( Info_Font , pline , C );
 	Dispose( pline );
 
 	CDest.X := CZone.X + Tab;
@@ -200,7 +200,7 @@ var
 	PLine: PChar;
 begin
 	pline := QuickPCopy( msg );
-	MyImage := TTF_RenderText_Solid( Info_Font , pline , C );
+	MyImage := TTF_RenderText_Blended( Info_Font , pline , C );
 	Dispose( pline );
 
 	CDest.X := CZone.X + Tab - MyImage^.W;

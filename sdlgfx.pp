@@ -813,7 +813,7 @@ begin
 		SA := SList;
 		while SA <> Nil do begin
 			pline := QuickPCopy( SA^.Info );
-			S_Temp := TTF_RenderText_Solid( game_font , pline , fg );
+			S_Temp := TTF_RenderText_Blended( game_font , pline , fg );
 			Dispose( pline );
 
 			{ We may or may not be required to do centering of the text. }
@@ -846,7 +846,7 @@ var
 	MyText: PSDL_Surface;
 begin
 	pline := QuickPCopy( msg );
-	MyText := TTF_RenderText_Solid( game_font , pline , Color );
+	MyText := TTF_RenderText_Blended( game_font , pline , Color );
 	Dispose( pline );
 	SDL_BlitSurface( MyText , Nil , Game_Screen , @MyDest );
 	SDL_FreeSurface( MyText );
@@ -860,7 +860,7 @@ var
 	MyText: PSDL_Surface;
 begin
 	pline := QuickPCopy( msg );
-	MyText := TTF_RenderText_Solid( info_font , pline , Color );
+	MyText := TTF_RenderText_Blended( info_font , pline , Color );
 	Dispose( pline );
 	MyDest.X := MyDest.X - ( MyText^.W div 2 );
 	SDL_BlitSurface( MyText , Nil , Game_Screen , @MyDest );
@@ -1029,7 +1029,7 @@ begin
 	MyDest := ZONE_Dialog;
 	MyDest.Y := MyDest.Y + MyDest.H - TTF_FontLineSkip( game_font );
 	pline := QuickPCopy( TheLine );
-	S_Temp := TTF_RenderText_Solid( game_font , pline , InfoGreen );
+	S_Temp := TTF_RenderText_Blended( game_font , pline , InfoGreen );
 	Dispose( pline );
 	SDL_BlitSurface( S_Temp , Nil , Game_Screen , @MyDest );
 	SDL_FreeSurface( S_Temp );
@@ -1185,7 +1185,7 @@ Procedure MoreText( LList: SAttPtr; FirstLine: Integer );
 		for t := 1 to ( ZONE_MoreText.H  div  TTF_FontLineSkip( game_font ) ) do begin
 			if CLine <> Nil then begin
 				pline := QuickPCopy( CLine^.Info );
-				MyImage := TTF_RenderText_Solid( game_font , pline , NeutralGrey );
+				MyImage := TTF_RenderText_Blended( game_font , pline , NeutralGrey );
 				Dispose( pline );
 				SDL_BlitSurface( MyImage , Nil , Game_Screen , @MyDest );
 				SDL_FreeSurface( MyImage );
