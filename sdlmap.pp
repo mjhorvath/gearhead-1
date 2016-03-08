@@ -398,10 +398,10 @@ begin
 		MyDest.X := ZONE_Map.X + ZONE_Map.W - 16;
 	end else if Quad = OM_West then begin
 		MyDest.Y := ZONE_Map.Y + ( ZONE_Map.H * ( N + 1 ) ) div ( NumOMM + 2 );
-		MyDest.X := ZONE_Map.X + 8;
+		MyDest.X := ZONE_Map.X + 0;
 	end else if Quad = OM_South then begin
 		MyDest.X := ZONE_Map.X + ( ( ZONE_Map.W * ( N + 1 ) ) div ( NumOMM + 2 ) );
-		MyDest.Y := ZONE_Map.Y + 8;
+		MyDest.Y := ZONE_Map.Y + 0;
 	end else begin
 		MyDest.X := ZONE_Map.X + ( ( ZONE_Map.W * ( N + 1 ) ) div ( NumOMM + 2 ) );
 		MyDest.Y := ZONE_Map.Y + ZONE_Map.H - 16;
