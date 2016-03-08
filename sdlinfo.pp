@@ -410,6 +410,8 @@ Procedure LocationInfo( Part: GearPtr; gb: GameBoardPtr );
 	{ This procedure is meant to be called after a GearInfo call, }
 	{ since it assumes that ZX1,ZY1...etc will have been set up }
 	{ properly beforehand. }
+const
+	NudgeX = 4;
 var
 	MyDest: TSDL_Rect;
 	n: Integer;
@@ -417,14 +419,14 @@ begin
 	if ( GB <> Nil ) and OnTheMap( Part ) and IsMasterGear( Part ) and ( Part^.G <> GG_Prop ) then begin
 		{ Props are master gears, but they don't get location info. }
 		MyDest.Y := CDest.Y + 12;
-		MyDest.X := CZone.X + ( CZone.W div 8 );
+		MyDest.X := CZone.X + ( CZone.W div 8 ) + NudgeX;
 		DrawSprite( Module_Sprite , MyDest , 144 + ( NAttValue( Part^.NA , NAG_Location , NAS_D ) + 1 ) mod 8 );
 
 		n := mekAltitude( GB , Part ) + 3;
 		if N < 0 then n := 0
 		else if N > 8 then n := 8;
 		MyDest.Y := CDest.Y - 8;
-		MyDest.X := CZone.X + ( CZone.W div 8 ) + 15;
+		MyDest.X := CZone.X + ( CZone.W div 8 ) + 18 + NudgeX;
 		DrawSprite( Altimeter_Sprite , MyDest , N );
 
 		N := NAttValue( Part^.Na , NAG_Action , NAS_MoveAction );
@@ -438,7 +440,7 @@ begin
 			N := 0;
 		end;
 		MyDest.Y := CDest.Y - 8;
-		MyDest.X := CZone.X + ( CZone.W div 8 ) - 24;
+		MyDest.X := CZone.X + ( CZone.W div 8 ) - 28 + NudgeX;
 		DrawSprite( Speedometer_Sprite , MyDest , N );
 
 	end else if SAttValue( Part^.SA , 'SDL_SPRITE' ) <> '' then begin

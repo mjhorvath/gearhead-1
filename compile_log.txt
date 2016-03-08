@@ -103,9 +103,9 @@ sdlinfo.pp(299,17) Note: Local variable "Structure" not used
 sdlinfo.pp(270,2) Note: Local variable "MM" not used
 sdlinfo.pp(270,5) Note: Local variable "A" not used
 sdlinfo.pp(270,7) Note: Local variable "B" not used
-sdlinfo.pp(780,2) Note: Local variable "msg" not used
-sdlinfo.pp(780,6) Note: Local variable "job" not used
-sdlinfo.pp(861,6) Note: Local variable "job" not used
+sdlinfo.pp(782,2) Note: Local variable "msg" not used
+sdlinfo.pp(782,6) Note: Local variable "job" not used
+sdlinfo.pp(863,6) Note: Local variable "job" not used
 aibrain.pp(656,2) Note: Local variable "BestWeight" is assigned but never used
 aibrain.pp(1891,2) Note: Local variable "it" not used
 Compiling arenascript.pp
@@ -124,6 +124,6 @@ gflooker.pp(62,2) Warning: Variable "LOOKER_Desc" read but nowhere assigned
 Compiling randchar.pp
 Compiling navigate.pp
 Linking gharena.exe
-47759 lines compiled, 1.4 sec, 499472 bytes code, 102244 bytes data
+47761 lines compiled, 1.4 sec, 499472 bytes code, 102244 bytes data
 39 warning(s) issued
 35 note(s) issued

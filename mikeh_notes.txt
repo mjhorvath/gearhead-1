@@ -52,3 +52,4 @@
 - it might be nice to have half-high objects to hide behind, i.e. so you can crouch behind them and shoot but not get hit
 - change cursor to a red target when hovering over an enemy
 - change cursor to a hand when hovering over an interactive object
+- portrait background should vary based on location
