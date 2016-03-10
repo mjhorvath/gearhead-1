@@ -197,7 +197,11 @@ var
 	Animation_Phase: Integer;
 	Last_Clock_Update: UInt32;
 
-    MasterColorList: SAttPtr;
+	MasterColorList: SAttPtr;
+
+	RWop: PSDL_RWops;
+	ICOimage: PSDL_Surface;
+	ICOcolorkey: Uint32;
 
 	Music_List: SAttPtr;
 {	MyMusic: P_Mix_Music;}
@@ -1325,6 +1329,10 @@ initialization
 	Console_History := Nil;
 
 	SDL_WM_SetCaption( WindowName , IconName );
+	RWop := SDL_RWFromFile('gharena.ico', 'rb');
+	ICOimage := IMG_Load_RW(RWop, 1);
+//	SDL_SetColorKey(ICOimage, SDL_SRCCOLORKEY, SDL_MapRGB(ICOimage^.format, 0, 0, 0));
+	SDL_WM_SetIcon(ICOimage, Nil);
 
 	Animation_Phase := 0;
 	Last_Clock_Update := 0;

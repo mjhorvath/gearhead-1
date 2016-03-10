@@ -35,6 +35,10 @@ uses gears,sdlgfx,arenahq,sdlmenus,randchar,navigate,sdlmap;
 uses gears,congfx,arenahq,conmenus,randchar,navigate,context,mapedit;
 {$ENDIF}
 
+{$IFDEF Win32}
+{$R app_ico.rc}
+{$ENDIF}
+
 const
 	Version = '1.100 (fork)';
 
