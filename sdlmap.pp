@@ -707,17 +707,16 @@ begin
 				end else if GB^.Map[ X , Y ].terr = 10 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , HillFrame( X , Y ) , Hill_3 );
 					Overlay_Map[ X , Y , 0 , OVERLAY_Terrain ].UseAlpha := True;
-				{ 16-frame sprites including thin walls. }
+				{ 16-frame thin walls. }
 				end else if Terrain_Image[ GB^.Map[ X , Y ].terr ] < 0 then begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , WallFloorFrame( X , Y ) , Terrain_Sprite );
 					AddInstantOverlay( X , Y , 0 , OVERLAY_ThinWall , WallFrame( X , Y ) , Thin_Wall_Sprites[ -Terrain_Image[ GB^.Map[ X , Y ].terr ] ] );
 					{ Arena wall is a special case. }
-					if GB^.Map[ X , Y ].terr <> 47 then begin
-						AddInstantOverlay( X , Y , 0 , OVERLAY_Toupee , WallCapFrame( X , Y ) , Thin_Wall_Cap );
-						if TerrMan[ GB^.Map[ X , Y ].terr ].Altitude > 0 then begin
-							Overlay_Map[ X , Y , 0 , OVERLAY_ThinWall ].UseAlpha := True;
-							Overlay_Map[ X , Y , 0 , OVERLAY_Toupee ].UseAlpha := True;
-						end;
+					if GB^.Map[ X , Y ].terr = 47 then continue;
+					AddInstantOverlay( X , Y , 0 , OVERLAY_Toupee , WallCapFrame( X , Y ) , Thin_Wall_Cap );
+					if TerrMan[ GB^.Map[ X , Y ].terr ].Altitude > 0 then begin
+						Overlay_Map[ X , Y , 0 , OVERLAY_ThinWall ].UseAlpha := True;
+						Overlay_Map[ X , Y , 0 , OVERLAY_Toupee ].UseAlpha := True;
 					end;
 				end else begin
 					AddInstantOverlay( X , Y , 0 , OVERLAY_Terrain , GB^.Map[ X , Y ].terr - 1 , Terrain_Sprite );

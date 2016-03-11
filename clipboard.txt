@@ -17,3 +17,6 @@ it^.Img := IMG_Load( fname );
 		Img: PSDL_Surface;
 		Next: SensibleSpritePtr;
 	end;
+
+sdlmap.pp line 1648 SDL_SetAlpha
+sdlgfx.pp line 613 DrawAlphaSprite

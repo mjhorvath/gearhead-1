@@ -71,12 +71,14 @@ Compiling sdlmap.pp
 Compiling randmaps.pp
 Compiling menugear.pp
 Compiling sdlmenus.pp
-sdlmap.pp(1068,2) Note: Local variable "pmsg" not used
-sdlmap.pp(1069,2) Note: Local variable "MyImage" not used
-sdlmap.pp(1083,2) Note: Local variable "SL" not used
-sdlmap.pp(1084,2) Note: Local variable "pmsg" not used
-sdlmap.pp(1085,2) Note: Local variable "MyImage" not used
-sdlmap.pp(1305,2) Note: Local variable "SL" not used
+sdlmap.pp(1067,2) Note: Local variable "pmsg" not used
+sdlmap.pp(1068,2) Note: Local variable "MyImage" not used
+sdlmap.pp(1082,2) Note: Local variable "SL" not used
+sdlmap.pp(1083,2) Note: Local variable "pmsg" not used
+sdlmap.pp(1084,2) Note: Local variable "MyImage" not used
+sdlmap.pp(1304,2) Note: Local variable "SL" not used
+sdlmap.pp(1520,14) Warning: Some fields coming after "Y" were not initialized
+sdlmap.pp(1520,26) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1521,14) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1521,26) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1522,14) Warning: Some fields coming after "Y" were not initialized
@@ -87,9 +89,7 @@ sdlmap.pp(1524,14) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1524,26) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1525,14) Warning: Some fields coming after "Y" were not initialized
 sdlmap.pp(1525,26) Warning: Some fields coming after "Y" were not initialized
-sdlmap.pp(1526,14) Warning: Some fields coming after "Y" were not initialized
-sdlmap.pp(1526,26) Warning: Some fields coming after "Y" were not initialized
-sdlmap.pp(1597,2) Note: Local variable "A" not used
+sdlmap.pp(1596,2) Note: Local variable "A" not used
 sdlmap.pp(238,2) Note: Local variable "Opening_X" not used
 sdlmap.pp(238,12) Note: Local variable "Opening_Y" not used
 sdlinfo.pp(52,51) Warning: Some fields coming after "b" were not initialized
@@ -126,6 +126,6 @@ Compiling navigate.pp
 Compiling resource E:\GearHead_Git\gearhead-1\app_ico.rc
 Compiling resource gharena.or
 Linking gharena.exe
-47773 lines compiled, 4.2 sec, 499552 bytes code, 102244 bytes data
+47772 lines compiled, 1.5 sec, 499552 bytes code, 102244 bytes data
 39 warning(s) issued
 35 note(s) issued

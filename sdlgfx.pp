@@ -495,17 +495,12 @@ begin
 					it^.img := tmp;
 				end;
 
+				{ Convert to the screen mode. }
+				{ This will make blitting far quicker. }
 				tmp := SDL_ConvertSurface( it^.Img , Game_Screen^.Format , SDL_SRCCOLORKEY );
 				SDL_FreeSurface( it^.Img );
 				it^.Img := TMP;
 			end;
-
-			{ Convert to the screen mode. }
-			{ This will make blitting far quicker. }
-//			tmp := SDL_ConvertSurface( it^.Img , Game_Screen^.Format , SDL_SRCCOLORKEY );
-//			SDL_FreeSurface( it^.Img );
-//			it^.Img := TMP;
-
 		end;
 
 		Dispose( fname );
@@ -617,6 +612,7 @@ end;
 
 procedure DrawAlphaSprite( Spr: SensibleSpritePtr; MyDest: TSDL_Rect; Frame: Integer );
 	{ Draw a sensible sprite. }
+	{ This procedure no longer works as intended since I converted all terrain sprites to 32 bits. Need to devise an alternative. - MJH }
 begin
 	{ First make sure that we have some valid sprite data... }
 	if ( Spr <> Nil ) and ( Spr^.Img <> Nil ) then begin
