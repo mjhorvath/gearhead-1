@@ -1,4 +1,6 @@
 git push origin master
+git commit -a -m "My message."
+
 TheRenderer in randmaps.pp
 
 sdlmap.pp line 764 MetaTerrain
