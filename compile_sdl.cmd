@@ -1,4 +1,4 @@
-cd "E:\GearHead_Git\gearhead-1"
+cd "E:\GearHead_Git\gearhead-1\"
 del *.ppu
 del *.o
 ppc386 -dSDLMODE gharena > "E:\GearHead_Git\gearhead-1\compile_log.txt"

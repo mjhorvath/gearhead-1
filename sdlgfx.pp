@@ -219,6 +219,7 @@ procedure DrawAlphaSprite( Spr: SensibleSpritePtr; MyDest: TSDL_Rect; Frame: Int
 Function ConfirmSprite( Name: String; const Color: String; W,H: Integer ): SensibleSpritePtr;
 
 function RPGKey: Char;
+Procedure ClrZoneMap( var Z: TSDL_Rect );
 Procedure ClrZone( var Z: TSDL_Rect );
 Procedure ClrScreen;
 
@@ -708,6 +709,13 @@ begin
 
 	if a <> '' then RPGKey := a[1]
 	else RPGKey := 'Z';
+end;
+
+Procedure ClrZoneMap( var Z: TSDL_Rect );
+	{ Clear the specified screen zone. }
+	{ I've been experimenting with different colors, here. However, black does ultimately look the best. - MJH}
+begin
+	SDL_FillRect( game_screen , @Z , SDL_MapRGB( Game_Screen^.Format , 0 , 0 , 0 ) );
 end;
 
 Procedure ClrZone( var Z: TSDL_Rect );
@@ -1360,6 +1368,6 @@ finalization
 	DisposeSAtt( Text_Messages );
 	DisposeSAtt( Console_History );
 
-    DisposeSAtt( MasterColorList )
+	DisposeSAtt( MasterColorList )
 
 end.

@@ -417,7 +417,7 @@ var
 	MyDest: TSDL_Rect;
 begin
 	{ Set the clip area. }
-	ClrZone( ZONE_Map );
+	ClrZoneMap( ZONE_Map );
 	SDL_SetClipRect( Game_Screen , @ZONE_Map );
 
 	{ Clear the OFF_MAP_MODELS. }

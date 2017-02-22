@@ -52,7 +52,7 @@
   ~ not likely to get around to doing this
 - it might be nice to have half-high objects to crouch and hide behind, i.e. so you can stand behind them and shoot but not get hit when someone shoots back at you
 - change cursor to a red target when hovering over an enemy
-  ~ currently, the orange box cursor is used ranged targeting
+  ~ currently, the orange box cursor is used for ranged targeting
 - change cursor to a hand when hovering over an interactive object such as a door
   ~ currently, the cyan box cursor is used for most everything
 - portrait background should vary based on location
@@ -61,3 +61,5 @@
   ~ why limit shadows to just buildings? why can't everything cast a shadow? lots of work...
 - with the new impassible SF0 tree and boulder sprites, you may become stuck and unable to move when spawning in a map
   ~ not sure how likely that is, exactly, or what can be done about it
+- door sprites should use the same type of floors as walls. ie, the texture should be "split" between the building interior and exterior floor textures
+- try to make smoother 32-bit cursors

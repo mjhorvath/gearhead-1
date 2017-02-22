@@ -49,7 +49,7 @@ sdlgfx.pp(58,50) Warning: Some fields coming after "b" were not initialized
 sdlgfx.pp(59,51) Warning: Some fields coming after "b" were not initialized
 sdlgfx.pp(60,49) Warning: Some fields coming after "b" were not initialized
 sdlgfx.pp(61,51) Warning: Some fields coming after "b" were not initialized
-sdlgfx.pp(654,2) Note: Local variable "m2" not used
+sdlgfx.pp(651,2) Note: Local variable "m2" not used
 Compiling arenahq.pp
 Compiling arenaplay.pp
 Compiling locale.pp
@@ -126,6 +126,6 @@ Compiling navigate.pp
 Compiling resource E:\GearHead_Git\gearhead-1\app_ico.rc
 Compiling resource gharena.or
 Linking gharena.exe
-47772 lines compiled, 1.5 sec, 499552 bytes code, 102244 bytes data
+47776 lines compiled, 1.5 sec, 499616 bytes code, 102244 bytes data
 39 warning(s) issued
 35 note(s) issued
