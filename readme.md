@@ -2,9 +2,9 @@ This is a fork of GearHead RPG by Joseph Hewitt. This fork has had its graphics
 modified so that they use 32-bit graphics with an alpha channel, causing the 
 graphics to appear crisper and smoother.
 
-* [![Screenshot 4](Screenshots/gh_1.100mh_screen_04.th.png)](Screenshots/gh_1.100mh_screen_04.fs.png)
-* [![Screenshot 7](Screenshots/gh_1.100mh_screen_07.th.png)](Screenshots/gh_1.100mh_screen_07.fs.png)
-* [![Screenshot 8](Screenshots/gh_1.100mh_screen_08.th.png)](Screenshots/gh_1.100mh_screen_08.fs.png)
+[![Screenshot 4](Screenshots/gh_1.100mh_screen_04.th.png)](Screenshots/gh_1.100mh_screen_04.fs.png)
+[![Screenshot 7](Screenshots/gh_1.100mh_screen_07.th.png)](Screenshots/gh_1.100mh_screen_07.fs.png)
+[![Screenshot 8](Screenshots/gh_1.100mh_screen_08.th.png)](Screenshots/gh_1.100mh_screen_08.fs.png)
 
 **************************
 ***  GEARHEAD  README  ***
